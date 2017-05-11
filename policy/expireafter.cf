@@ -1,0 +1,22 @@
+body contain mypowershell
+{
+    !windows::
+        useshell => "useshell";
+    windows::
+        useshell => "powershell";
+}
+
+body action fastlocks
+{
+    ifelapsed   => "0";    # disable ifelapsed lock
+    expireafter => "1";    # promise expires after 1 minute
+}
+
+bundle agent main
+{
+    commands:
+        "sleep"
+            args => "3000",
+            action => fastlocks,
+            contain => mypowershell;
+}

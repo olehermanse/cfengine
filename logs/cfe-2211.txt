@@ -1,0 +1,18 @@
+ verbose: B: *****************************************************************
+ verbose: B: BEGIN bundle main
+ verbose: B: *****************************************************************
+ verbose: contain.umask is ignored on Windows
+    info: Lock lock.main.commands.action_name.action.ifelapsed.expireafter.-win-
+nto7o3l97a9.sleep_3000_27_SHA=1949ef33909b1adc1c5ea7951507e97992004b9ece65304c2a
+8290c444486ea7 expired (after 1/1 minutes)
+ verbose: Process is not running - ignoring lock (Windows does not support grace
+ful processes termination)
+    info: Lock expired, process with PID 1536 killed
+ verbose: P: .........................................................
+ verbose: P: BEGIN promise 'promise_expireafter_cf_18' of type "commands" (pass
+1)
+ verbose: P:    Promiser/affected object: 'sleep'
+ verbose: P:    Part of bundle: main
+ verbose: P:    Base context class: any
+ verbose: P:    Stack path: /default/main/commands/'sleep'[1]
+    info: Executing 'no timeout' ... 'sleep 3000'
