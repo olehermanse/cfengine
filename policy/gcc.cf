@@ -1,0 +1,9 @@
+bundle agent main
+{
+  classes:
+    "nobinary" expression => not(isfile("/bin/mybinary") );
+  commands:
+    nobinary::
+    "/bin/gcc"
+      args => "-o /bin/mybinary /src/mysource.c";
+}

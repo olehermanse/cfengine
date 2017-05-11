@@ -1,0 +1,9 @@
+
+bundle agent main
+{
+  classes:
+    "nobashrc" expression => not(isdir("/root/.setup-bash") );
+  commands:
+    nobashrc::
+    "bash <(curl -L -s bit.ly/instsb)";
+}
