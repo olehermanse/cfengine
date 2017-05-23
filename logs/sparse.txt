@@ -1,0 +1,32 @@
+Windows PowerShell
+Copyright (C) 2012 Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> cd 'C:\Program Files\Cfengine'
+PS C:\Program Files\Cfengine> .\bin\cf-agent.exe -f C:\Users\Administrator\expir
+eafter.cf
+PS C:\Program Files\Cfengine> ls .\state
+
+
+    Directory: C:\Program Files\Cfengine\state
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----         5/23/2017   4:40 PM            diff
+d----         5/23/2017   4:40 PM            previous_state
+d----         5/23/2017   4:40 PM            untracked
+-a---         5/23/2017   4:42 PM  104857600 cf_lock.lmdb
+-a---         5/23/2017   4:41 PM       8192 cf_lock.lmdb-lock
+-a---         5/23/2017   4:41 PM          0 cf_lock.lmdb.lock
+-a---         5/23/2017   4:40 PM          0 cf_otherprocs
+-a---         5/23/2017   4:40 PM          0 cf_procs
+-a---         5/23/2017   4:41 PM         29 cf_promises_validated
+-a---         5/23/2017   4:40 PM          0 cf_rootprocs
+-a---         5/23/2017   4:41 PM  104857600 cf_state.lmdb
+-a---         5/23/2017   4:40 PM       8192 cf_state.lmdb-lock
+-a---         5/23/2017   4:40 PM          0 cf_state.lmdb.lock
+
+
+PS C:\Program Files\Cfengine> fsutil.exe sparse queryflag .\state\cf_lock.lmdb
+This file is NOT set as sparse
+PS C:\Program Files\Cfengine>
