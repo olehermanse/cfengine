@@ -1,0 +1,23 @@
+# Load the CFEngine standard library:
+body file control
+{
+  inputs => { "$(sys.libdir)/stdlib.cf" };
+}
+
+bundle agent main
+{
+    # Load data from env file and convert to json string:
+    vars:
+        "envdata"
+            data =>  readenvfile("/etc/os-release", 4000);
+        "jsonstring"
+            string =>  storejson(envdata);
+    # Create / modify json file with jsonstring
+    files:
+        "/tmp/os-release.json"
+            create => "true",
+            edit_line => insert_lines("$(jsonstring)"),
+            edit_defaults => empty;
+    reports:
+        "/etc/os-release converted to /tmp/os-release.json";
+}
