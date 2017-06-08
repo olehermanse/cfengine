@@ -11,10 +11,7 @@ bundle edit_line insert_lines(lines)
 }
 
 # The 2 definitions above are from MPF, and could be replaced with:
-body file control
-{
-  inputs => { "$(sys.libdir)/stdlib.cf" };
-}
+# body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 
 bundle agent main
 {
