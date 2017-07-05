@@ -1,0 +1,18 @@
+body password user_password
+{
+  format => "plaintext";
+    data => "kwX57yv2MCqcjJ3M";
+}
+
+bundle agent main
+{
+  users:
+    windows::
+      "jsmith"
+        policy => "present",
+        description => "John Smith",
+        home_dir => "C:\Users\jsmith",
+        group_primary => "users",
+        groups_secondary => { "Remote Desktop Users" },
+        password => user_password;
+}
