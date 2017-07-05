@@ -2,11 +2,11 @@
 Make importing standard library easier/more readable.
 
 Syntactic sugar so this:
-```
+```python
 import "stdlib.cf"
 ```
 expands to:
-```
+```cfengine
 body file control { inputs => { "$(sys.libdir)/stdlib.cf" }; }
 ```
 if specified at start of line, outside of other declarations.
