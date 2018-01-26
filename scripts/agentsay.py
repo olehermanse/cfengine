@@ -5,6 +5,9 @@ __copyright__ = "Northern.tech"
 __authors__ = ["Ole Herman Schumacher Elgesem"]
 __license__ = "MIT"
 
+# Install (as root):
+# curl -L https://raw.githubusercontent.com/olehermanse/cfengine/master/scripts/agentsay.py -o /usr/local/bin/agentsay && chmod ugo+x /usr/local/bin/agentsay && agentsay install success
+
 import sys
 import os
 
