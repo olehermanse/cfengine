@@ -1,0 +1,8 @@
+bundle agent main
+{
+  packages:
+    "apache"
+        policy => "present",
+        package_module => yum,
+        options => { "enablerepo=epel" };
+}
