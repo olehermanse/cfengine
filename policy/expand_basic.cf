@@ -1,0 +1,42 @@
+
+# printf "box,compute\r\neditor,vim\r\nbeverage,tea\r\n" > test.csv 
+bundle agent main
+{
+  vars:
+    "single" string => "Hello, world!";
+    "packages" slist => string_split("ed,vim,nano", ",", "10000");
+    "test_csv" string => "$(this.promise_dirname)/test.csv";
+    "test_csv_data" data => readcsv("$(test_csv)");
+    "test_csv_string" string => format("%S", test_csv_data);
+    "test_csv_indices" slist => getindices(test_csv_data);
+    "test_csv_values" slist => getvalues(test_csv_data);
+    
+    "row_list[$(test_csv_indices)]" slist => getvalues("test_csv_data[$(test_csv_indices)]");
+    "csv_class[$(test_csv_indices)]" string => join("_", "row_list[$(test_csv_indices)]");
+
+  classes:
+    "$(csv_class[$(test_csv_indices)])";
+
+  reports:
+    "This promise has no expansion and is always printed once";
+    "This promise expands a single variable, once: $(single)";
+    "This promise expands a list of 3 strings: $(packages)";
+    "This is the CSV filename: $(test_csv)";
+    "This is the CSV as a string: $(test_csv_string)";
+    "These are the CSV indices: $(test_csv_indices)";
+    "These are the CSV values: $(test_csv_values)";
+    box_compute::
+      "I am a compute box!";
+    box_dev::
+      "I am a dev box!";
+    box_prod::
+      "I am a prod box!";
+    editor_emacs::
+      "I use emacs";
+    editor_vim::
+      "I use vim";
+    beverage_tea::
+      "I drink tea";
+    beverage_tea_beer::
+      "They both taste great";
+}
